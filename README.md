@@ -1,3 +1,5 @@
 # test-badges
 
-![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fgithub.com%2Fbindsi%2FIoTEdgeObjectModel%2Ftags)
+| Edge Extension Repo | Version |
+| ------------- | ------------- |
+| azure-edge-extensions-iotedge-objectmodel-dotnet | ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/azure-samples/azure-edge-extensions-iotedge-objectmodel-dotnet) |
