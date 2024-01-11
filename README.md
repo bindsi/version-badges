@@ -1,4 +1,5 @@
 # test-badges
+![Endpoint Badge](https://shields.io/endpoint?url=https%3A%2F%2Ffunc-badgecreator.azurewebsites.net%2Fapi%2Fbadges)
 
 | Edge Extension Repo | Version |
 | ------------- | ------------- |
