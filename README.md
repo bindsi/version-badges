@@ -1,6 +1,6 @@
 # test-badges
 
-This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and [GitVersion] in GitHub Actions to create badges for your repos.
+This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and [GitVersion](https://gitversion.net/) in GitHub Actions to create badges for your repos.
 
 | Repository | Version |
 | ------------- | ------------- |
