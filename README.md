@@ -1,10 +1,10 @@
-# test-badges
+# Version Badges
 
 This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and [GitVersion](https://gitversion.net/) in GitHub Actions to create badges for your repos.
 
 | Repository | Version |
 | ------------- | ------------- |
-| test-badges | [![GitHub Tag](https://img.shields.io/github/v/tag/bindsi/test-badges?logo=github&label=version)](https://github.com/bindsi/test-badges)
+| version-badges | [![GitHub Tag](https://img.shields.io/github/v/tag/bindsi/version-badges?logo=github&label=version)](https://github.com/bindsi/version-badges)
  |
 
 ## Prerequisites
