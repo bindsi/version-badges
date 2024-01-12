@@ -4,8 +4,7 @@ This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and
 
 | Repository | Version |
 | ------------- | ------------- |
-| version-badges | [![GitHub Tag](https://img.shields.io/github/v/tag/bindsi/version-badges?logo=github&label=version)](https://github.com/bindsi/version-badges/tags)
- |
+| version-badges | [![GitHub Tag](https://img.shields.io/github/v/tag/bindsi/version-badges?logo=github&label=version)](https://github.com/bindsi/version-badges/tags) |
 
 ## Prerequisites
 
