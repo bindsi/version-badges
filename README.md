@@ -11,7 +11,7 @@ This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and
 1. Your repository has to be public.
 2. Permissions
     1. You have to grant `read and write permissions` to your GITHUB_TOKEN by navigating to _Settings_ of your repo, then go to _Actions_ and _General_ and scroll down to _Workflow Persmissions_.
-    2. If your GitHub org has introduced a read-only GITHUB_TOKEN for GitHub Actions workflows then you have to add a permissions section to your workflow job for scope contents with read permission
+    2. If your GitHub org has introduced a read-only GITHUB_TOKEN for GitHub Actions workflows then you have to add a permissions section to your workflow job for scope contents with write permission
     ```yaml
       permissions:
         contents: write
