@@ -12,7 +12,7 @@ Date: **2021-10-14** [Format=YYYY-MM-DD]
 
 ## Decision
 
-Determine the minimum initial scope of this project to deliver value to and accelerate ISE crews building edge computing systems.
+- How do we enable ISE crews to leverage existing AIO assets in their engagements with customer building edge computing systems?
 
 ## Context
 
