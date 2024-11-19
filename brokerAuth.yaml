@@ -1,0 +1,55 @@
+apiVersion: mqttbroker.iotoperations.azure.com/v1
+kind: BrokerAuthentication
+metadata:
+  annotations:
+    management.azure.com/apiVersion: "2024-11-01"
+    management.azure.com/bridgeLocation: EastUS2
+    management.azure.com/cloudEnvironment: AzureCloud
+    management.azure.com/correlationId: 531e9787-0bc3-4d97-a37d-b4af7f373970
+    management.azure.com/customLocation: /subscriptions/4e80bb93-03b8-4aaa-8394-7c52710f434a/resourceGroups/rgaioproxdevcloud/providers/Microsoft.ExtendedLoc
+ation/customLocations/vmaioproxdevcorp-cl
+    management.azure.com/location: eastus2
+    management.azure.com/operationId: c7bc4367-7503-4e97-a360-9e60f7883139*7EEA21707047D3B388173EB03D9B1647D32EFEAF758E4B22CC1D34CF9B5C6D14
+    management.azure.com/parentResourceId: /subscriptions/4e80bb93-03b8-4aaa-8394-7c52710f434a/resourceGroups/rgaioproxdevcloud/providers/Microsoft.IoTOperat
+ions/instances/vmaioproxdevcorp-iot/brokers/default
+    management.azure.com/resourceId: /subscriptions/4e80bb93-03b8-4aaa-8394-7c52710f434a/resourceGroups/rgaioproxdevcloud/providers/Microsoft.IoTOperations/i
+nstances/vmaioproxdevcorp-iot/brokers/default/authentications/default
+    management.azure.com/systemData: '{"createdBy":"0b0f9a5b-f349-4eb4-ad2d-27ff71134d93","createdByType":"Application","createdAt":"2024-11-17T00:27:30.3404
+069Z","resourceUID":"1335c558-7aea-4280-bbec-a8a93ae32170","clientLocation":"eastus2"}'
+    management.azure.com/tenantId: 16b3c013-d300-468d-ac64-7eda0820b6d3
+    traceparent: 00-1063f5d2d2284100e65a20fd8c684fd0-c84ebbdf5bd99306-01
+  creationTimestamp: "2024-11-17T00:27:31Z"
+  finalizers:
+  - brokerauthentication.mqttbroker.iotoperations.azure.com
+  generation: 1
+  name: default
+  namespace: azure-iot-operations
+  ownerReferences:
+  - apiVersion: mqttbroker.iotoperations.azure.com/v1
+    kind: Broker
+    name: default
+    uid: df0dc6be-84ec-42ab-8a80-809759627337
+  resourceVersion: "8670"
+  uid: 06b728c8-a9c0-453e-bc55-2dafea36358e
+spec:
+  authenticationMethods:
+  - method: ServiceAccountToken
+    serviceAccountTokenSettings:
+      audiences:
+      - aio-internal
+  - method: X509
+      x509Settings:
+        authorizationAttributes:
+          trustedClientCaCert: client-ca
+          root:
+            subject: CN = AIO Root CA
+          intermediate:
+            subject: CN = Example Intermediate CA
+          mqtts-endpoint:
+            subject: CN = mqtts-endpoint
+status:
+  provisioningStatus:
+    operationId: c7bc4367-7503-4e97-a360-9e60f7883139*7EEA21707047D3B388173EB03D9B1647D32EFEAF758E4B22CC1D34CF9B5C6D14
+    output:
+      message: BrokerAuthentication created successfully
+    status: Succeeded
