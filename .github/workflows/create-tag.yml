@@ -1,9 +1,10 @@
+---
 name: Main Branch CI
-on: 
+on:
   push:
-    branches: 
+    branches:
       - main
-  
+
 jobs:
   Build-Code:
     permissions:
