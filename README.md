@@ -10,17 +10,19 @@ This repo demonstrates how to use [Semantic Versioning](https://semver.org/) and
 
 1. Your repository has to be public.
 2. Permissions
-    1. You have to grant `read and write permissions` to your GITHUB_TOKEN by navigating to _Settings_ of your repo, then go to _Actions_ and _General_ and scroll down to _Workflow Persmissions_.
+    1. You have to grant `read and write permissions` to your GITHUB_TOKEN by navigating to _Settings_ of your repo, then go to _Actions_ and _General_ and scroll down to _Workflow Permissions_.
     2. If your GitHub org has introduced a read-only GITHUB_TOKEN for GitHub Actions workflows then you have to add a permissions section to your workflow job for scope contents with write permission
+
     ```yaml
       permissions:
         contents: write
     ```
+
 ## Getting Started
 
 ### Configuration of GitVersion
 
-GitVersion is a tool to help you achieve Semantic Versioning on your project. It uses the commit history to determine the version of your project. In our case it uses tags to determine the version and is configurated in the file [GitVersion.yml](GitVersion.yml).
+GitVersion is a tool to help you achieve Semantic Versioning on your project. It uses the commit history to determine the version of your project. In our case it uses tags to determine the version and is configured in the file [GitVersion.yml](GitVersion.yml).
 
 Add this to the root of your repo and configure it to your needs. For more information on how to configure GitVersion, please refer to the [documentation](https://gitversion.net/docs/).
 
