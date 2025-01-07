@@ -28,7 +28,7 @@
   // MD007/ul-indent : Unordered list indentation : https://github.com/DavidAnson/markdownlint/blob/v0.37.3/doc/md007.md
   "MD007": {
     // Spaces for indent
-    "indent": 4,
+    "indent": 2,
     // Whether to indent the first level of the list
     "start_indented": false,
     // Spaces for first level indent (when start_indented is set)
@@ -223,7 +223,7 @@
   // MD044/proper-names : Proper names should have the correct capitalization : https://github.com/DavidAnson/markdownlint/blob/v0.37.3/doc/md044.md
   "MD044": {
     // List of proper names
-    "names": [],
+    "names": [""],
     // Include code blocks
     "code_blocks": true,
     // Include HTML elements
