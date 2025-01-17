@@ -42,3 +42,4 @@ You can configure your badge by using the advanced properties like e.g. the colo
 > **Note:** [GitHub anonymizes the URLs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-anonymized-urls) of the badge and there might be a delay in the update of the badge because of the caching.
 
 The Shields.io service creates the markdown for the badge as well which can be easily used in readme or documentation files like in the table above. This sample also adds a link to the badge image so that you end up on the tags page of the repo when clicking on the badge.
+
