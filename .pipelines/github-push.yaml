@@ -49,6 +49,7 @@
                 installationToken=$(bash $(System.DefaultWorkingDirectory)/scripts/github/installation-token.sh $token $url)
                 
                 remoteUrl=$(echo $(githubRepo) | sed "s|__token__|$installationToken|g")
+                echo "Remote URL: $remoteUrl"
                 git remote rename origin upstream
                 git remote add origin $remoteUrl
                 git push --force origin main:main-$(Build.BuildId)
