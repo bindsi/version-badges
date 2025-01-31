@@ -47,9 +47,8 @@
                 url=$(bash $(System.DefaultWorkingDirectory)/scripts/github/access-tokens-url.sh $token)
                 echo "Generating Github Installation Token"
                 installationToken=$(bash $(System.DefaultWorkingDirectory)/scripts/github/installation-token.sh $token $url)
-                echo "Clearing MegaLinter Cache Directory"
                 
-                remoteUrl=echo $(githubRepo) | sed "s|__token__|$installationToken|g"
+                remoteUrl=$(echo $(githubRepo) | sed "s|__token__|$installationToken|g")
                 git remote rename origin upstream
                 git remote add origin $remoteUrl
                 git push --force origin main:main-$(Build.BuildId)
