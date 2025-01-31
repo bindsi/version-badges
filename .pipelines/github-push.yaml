@@ -44,14 +44,14 @@
                 echo "Generating Github JWT Token"
                 token=$(bash $(System.DefaultWorkingDirectory)/scripts/github/jwt-token.sh $(github-app-client-id) $(ghAppPrivateKeyFile.secureFilePath))
                 echo "Generating Github Access Tokens Url"
-                url=$(bash $(System.DefaultWorkingDirectory)/scripts/github/access-tokens-url.sh $(token))
+                url=$(bash $(System.DefaultWorkingDirectory)/scripts/github/access-tokens-url.sh $token)
                 echo "Generating Github Installation Token"
-                installationToken=$(bash $(System.DefaultWorkingDirectory)/scripts/github/installation-token.sh $(token) $(url))
+                installationToken=$(bash $(System.DefaultWorkingDirectory)/scripts/github/installation-token.sh $token $url)
                 echo "Clearing MegaLinter Cache Directory"
                 
-                remoteUrl=echo $(githubRepo) | sed "s|__token__|$(installationToken)|g"
+                remoteUrl=echo $(githubRepo) | sed "s|__token__|$installationToken|g"
                 git remote rename origin upstream
-                git remote add origin $(remoteUrl)
+                git remote add origin $remoteUrl
                 git push --force origin main:main-$(Build.BuildId)
               displayName: "Create GitHub access token"
               name: githubPush
