@@ -23,9 +23,8 @@
   
   stages:
     # Daily scheduled build to update the MegaLinter cache
-    - stage: Scheduled
-      displayName: Megalinter Scheduled Caching
-      condition: eq(variables.isScheduled, true)
+    - stage: Main
+      displayName: AzDO to GitHub
       jobs:
         - job: "GitHubPush"
           displayName: "Updating GitHub repo from AzDO"
