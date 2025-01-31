@@ -12,7 +12,7 @@
   # define the Megalinter cache path for the pipeline
   variables:
     - name: githubRepo
-      value: https://__token__@github.com/commercial-software-engineering/Iac-for-the-Edge/
+      value: https://azdo:__token__@github.com/commercial-software-engineering/Iac-for-the-Edge/
     - group: 'github-enterprise'
 
   # Define the default pool for the entire pipeline. This is a
