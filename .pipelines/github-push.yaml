@@ -50,11 +50,7 @@
                 
                 remoteUrl=$(echo $(githubRepo) | sed "s|__token__|$installationToken|g")
                 echo "Remote URL: $remoteUrl"
-                git init
-                git config user.email "azdo@microsoft.com"
-                git config user.name "Azure DevOps"
-                git add .
-                git commit -m "GitHub push from AzDO"
+                git checkout -b feat/gh-push
                 git remote rename origin upstream
                 git remote add origin $remoteUrl
                 git push --force origin feat/gh-push:main-$(Build.BuildId)
