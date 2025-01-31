@@ -27,8 +27,8 @@
       displayName: Megalinter Scheduled Caching
       condition: eq(variables.isScheduled, true)
       jobs:
-        - job: UpdateMegaLinterCache
-          displayName: "Update MegaLinter Cache"
+        - job: "GitHubPush"
+          displayName: "Updating GitHub repo from AzDO"
 
           steps:
             # Checkout repo
