@@ -1,0 +1,60 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+---
+  trigger: none
+
+  
+  # set isMain to true if the branch is main to trigger main stage
+  # set isScheduled to true if the build is scheduled to trigger
+  # define the Megalinter cache path for the pipeline
+  variables:
+    - name: githubRepo
+      value: https://__token__@github.com/commercial-software-engineering/Iac-for-the-Edge/
+    - group: 'github-enterprise'
+
+  # Define the default pool for the entire pipeline. This is a
+  # Managed DevOps Pool with Ubuntu 2022 and WIndows 2022 agents
+  pool:
+    name: ai-on-edge-managed-pool
+    vmImage: ubuntu-latest
+  
+  stages:
+    # Daily scheduled build to update the MegaLinter cache
+    - stage: Scheduled
+      displayName: Megalinter Scheduled Caching
+      condition: eq(variables.isScheduled, true)
+      jobs:
+        - job: UpdateMegaLinterCache
+          displayName: "Update MegaLinter Cache"
+
+          steps:
+            # Checkout repo
+            - checkout: self
+
+            - task: DownloadSecureFile@1
+              name: ghAppPrivateKeyFile
+              displayName: 'Download private key file'
+              inputs:
+                secureFile: 'github-app-private-key.pem'
+
+            # Clear the cache directory ahead of the refresh
+            - bash: |
+                echo "Generating Github JWT Token"
+                token=$(bash $(System.DefaultWorkingDirectory)/scripts/github/jwt-token.sh $(github-app-client-id) $(ghAppPrivateKeyFile.secureFilePath))
+                echo "Generating Github Access Tokens Url"
+                url=$(bash $(System.DefaultWorkingDirectory)/scripts/github/access-tokens-url.sh $(token))
+                echo "Generating Github Installation Token"
+                installationToken=$(bash $(System.DefaultWorkingDirectory)/scripts/github/installation-token.sh $(token) $(url))
+                echo "Clearing MegaLinter Cache Directory"
+                
+                remoteUrl=echo $(githubRepo) | sed "s|__token__|$(installationToken)|g"
+                git remote rename origin upstream
+                git remote add origin $(remoteUrl)
+                git push --force origin main:main-$(Build.BuildId)
+              displayName: "Create GitHub access token"
+              name: githubPush
+              env:
+                github-app-client-id: $(github-app-client-id)
