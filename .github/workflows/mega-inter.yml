@@ -11,67 +11,40 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 jobs:
-#   megalinter:
-#     name: MegaLinter
-#     runs-on: ubuntu-latest
-#     permissions:
-#       # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
-#       # Remove the ones you do not need
-#       contents: write
-#       pull-requests: write
-#       packages: read
-#     steps:
-#       # Git Checkout
-#       - name: Checkout Code
-#         uses: actions/checkout@v4
-#         with:
-#           fetch-depth: 0 # If you use VALIDATE_ALL_CODEBASE = true, you can remove this line to improve performances
-#       # MegaLinter
-#       - name: MegaLinter
-#         id: ml
-#         # You can override MegaLinter flavor used to have faster performances
-#         # More info at https://megalinter.io/flavors/
-#         uses: oxsecurity/megalinter@v8
-#         env:
-#           # All available variables are described in documentation
-#           # https://megalinter.io/configuration/
-#           VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
-#           GITHUB_TOKEN: ${{ github.token }}
-#           # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
-#           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
-#       # Upload MegaLinter artifacts
-#       - name: Archive production artifacts
-#         if: success() || failure()
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: MegaLinter reports
-#           path: |
-#             megalinter-reports
-#             mega-linter.log
-
-  tflint:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+  megalinter:
+    name: MegaLinter
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
+      # Remove the ones you do not need
+      contents: write
+      pull-requests: write
+      packages: read
     steps:
-    - uses: actions/checkout@v4
-      name: Checkout source code
-    - uses: actions/cache@v4
-      name: Cache plugin dir
-      with:
-        path: ~/.tflint.d/plugins
-        key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}
-    - uses: terraform-linters/setup-tflint@v4
-      name: Setup TFLint
-      with:
-        tflint_version: v0.52.0
-    - name: Show version
-      run: tflint --version
-    - name: Init TFLint
-      run: tflint --init
-      env:
-        # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
-        GITHUB_TOKEN: ${{ github.token }}
-    - name: Run TFLint
-      run: tflint -f compact
+      # Git Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # If you use VALIDATE_ALL_CODEBASE = true, you can remove this line to improve performances
+      # MegaLinter
+      - name: MegaLinter
+        id: ml
+        # You can override MegaLinter flavor used to have faster performances
+        # More info at https://megalinter.io/flavors/
+        uses: oxsecurity/megalinter@v8
+        env:
+          # All available variables are described in documentation
+          # https://megalinter.io/configuration/
+          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
+          GITHUB_TOKEN: ${{ github.token }}
+          # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+          # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
+      # Upload MegaLinter artifacts
+      - name: Archive production artifacts
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MegaLinter reports
+          path: |
+            megalinter-reports
+            mega-linter.log
