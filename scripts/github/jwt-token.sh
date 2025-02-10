@@ -2,7 +2,7 @@
 
 set -o pipefail
 
-client_id=$1 # Client ID as first argument Iv23li2E0b8FPxeChzVw
+client_id=$1 # Client ID as first argument
 
 pem=$( cat $2 ) # file path of the private key as second argument
 
