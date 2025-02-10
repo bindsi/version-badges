@@ -54,6 +54,9 @@
                 git remote rename origin upstream
                 git remote add origin $remoteUrl
                 git push --force origin feat/gh-push:main-$(Build.BuildId)
+                echo "Pushed to GitHub"
+                echo "Creating PR"
+                bash $(System.DefaultWorkingDirectory)/scripts/github/create-pr.sh $installationToken main-$(Build.BuildId) $(Build.SourceVersionMessage)
               displayName: "Create GitHub access token"
               name: githubPush
               env:
