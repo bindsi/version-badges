@@ -2,17 +2,17 @@
     # MegaLinter GitHub Action configuration file
     # More info at https://megalinter.io
     name: MegaLinter
-    
+
     on:
       # Trigger mega-linter at every push. Action will also be visible from Pull Requests to main
       # push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
       pull_request:
         branches: [master, main]
-    
+
     concurrency:
       group: ${{ github.ref }}-${{ github.workflow }}
       cancel-in-progress: true
-    
+
     jobs:
       megalinter:
         name: MegaLinter
@@ -22,13 +22,14 @@
           # Remove the ones you do not need
           contents: write
           pull-requests: write
+          packages: read
         steps:
           # Git Checkout
           - name: Checkout Code
             uses: actions/checkout@v4
             with:
               fetch-depth: 0 # If you use VALIDATE_ALL_CODEBASE = true, you can remove this line to improve performances
-    
+
           # MegaLinter
           - name: MegaLinter
             id: ml
@@ -42,7 +43,7 @@
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
               # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
-    
+
           # Upload MegaLinter artifacts
           - name: Archive production artifacts
             if: success() || failure()

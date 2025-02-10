@@ -8,4 +8,4 @@ response=$(curl --request POST \
 --header "Authorization: Bearer $JWT" \
 --header "X-GitHub-Api-Version: 2022-11-28")
 
-echo $response | jq -r '.token'
+echo "$response" | jq -r '.token'

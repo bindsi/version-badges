@@ -7,4 +7,4 @@ response=$(curl -L \
   https://api.github.com/repos/commercial-software-engineering/Iac-for-the-Edge/installation)
 
 access_tokens_url=$(echo "$response" | jq -r '.access_tokens_url')
-echo $access_tokens_url
+echo "$access_tokens_url"
