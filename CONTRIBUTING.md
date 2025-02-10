@@ -11,15 +11,26 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-- [I Have a Question](#i-have-a-question)
-- [I Want To Contribute](#i-want-to-contribute)
-- [Reporting Bugs](#reporting-bugs)
-- [Suggesting Enhancements](#suggesting-enhancements)
-- [Your First Code Contribution](#your-first-code-contribution)
-- [Improving The Documentation](#improving-the-documentation)
-- [Style Guides](#style-guides)
-- [Commit Messages](#commit-messages)
+- [Contributing to the AI on Edge Flagship Accelerator](#contributing-to-the-ai-on-edge-flagship-accelerator)
+  - [Table of Contents](#table-of-contents)
+  - [Code of Conduct](#code-of-conduct)
+  - [I Have a Question](#i-have-a-question)
+  - [I Want To Contribute](#i-want-to-contribute)
+    - [Reporting Bugs](#reporting-bugs)
+      - [Before Submitting a Bug Report](#before-submitting-a-bug-report)
+      - [How Do I Submit a Good Bug Report?](#how-do-i-submit-a-good-bug-report)
+    - [Suggesting Enhancements](#suggesting-enhancements)
+      - [Before Submitting an Enhancement](#before-submitting-an-enhancement)
+      - [How Do I Submit a Good Enhancement Suggestion?](#how-do-i-submit-a-good-enhancement-suggestion)
+    - [Your First Code Contribution](#your-first-code-contribution)
+    - [Improving The Documentation](#improving-the-documentation)
+  - [Style Guides](#style-guides)
+    - [Linting](#linting)
+      - [Markdown linting](#markdown-linting)
+      - [Spell checking](#spell-checking)
+    - [Linting Updates](#linting-updates)
+    - [Commit Messages](#commit-messages)
+  - [Attribution](#attribution)
 
 ## Code of Conduct
 
@@ -110,14 +121,14 @@ When contributing code to the project, please consider the following guidance:
 - If a work item for your contribution does not exist, [please file an issue](https://dev.azure.com/ai-at-the-edge-flagship-accelerator/IaC%20for%20the%20Edge/_workitems/create/Issue) first to engage the project's PO, TPM, or Tech Lead for guidance.
 - Commits (or at least one in a commit chain) should reference a User Story or Task item from the backlog for traceability.
 - When creating a PR, ensure descriptions use [Azure DevOps notation to close associated work items](https://learn.microsoft.com/en-us/azure/devops/repos/git/resolution-mentions?view=azure-devops).
-- All code PRs destined for the `main` branch must be reviewed by two reviewers including one of the follow personnel:
-  - Tech Lead (Bill Berry)
-  - Architect (Tim Park, Paul Bouwer)
-  - Assistant Tech Lead (Vy Ta, Katrien De Graeve, or Allen Greaves)
+- All code PRs destined for the `main` branch must be reviewed by two reviewers including one of the following:
+  - Tech Lead: Bill Berry
+  - Architect: Tim Park, Paul Bouwer
+  - Maintainers: Vy Ta, Katrien De Graeve, or Allen Greaves
 - All ADRs and Security Plans must be reviewed by two reviewers including the following personnel:
-  - Product Owner (Larry Lieberman) or TPM (Mack Renard)
-  - AI/ML related ADRs (Cheng Chen, Ren Silva)
-  - Security related ADRs & Plans (Andrew Malkov)
+  - Product Owner: Larry Lieberman
+  - AI/ML related ADRs: Cheng Chen, Ren Silva
+  - Security related ADRs & Plans: Andrew Malkov
 
 This project also includes a Dev Container for development work, and using that dev container is preferred, to ensure you are using the same toolchains and tool versions as other contributors. You can read more about the Dev Container in its [ReadMe](./.devcontainer/README.md).
 
@@ -133,13 +144,13 @@ This project uses MegaLinter with numerous custom configured linters. These lint
 
 Run ALL linters
 
-```bash
+```sh
 npm run lint
 ```
 
 To fix basic linting issues, run the following:
 
-```bash
+```sh
 npm run lint-fix
 ```
 
@@ -147,13 +158,13 @@ npm run lint-fix
 
 The linter run as part of PR validation is installed and configured in the DevContainer, making it possible to check your markdown before committing & PR.
 
-```bash
+```sh
 npm run mdlint
 ```
 
 To fix basic markdown linting issues, run the following:
 
-```bash
+```sh
 npm run mdlint-fix
 ```
 
@@ -165,7 +176,7 @@ npm run mdlint-fix
 
 Cspell checker runs as part of PR validation and is installed and configured in the DevContainer, which makes it possible to check your language basics before committing & PR.
 
-```bash
+```sh
 npm run cspell
 ```
 
