@@ -17,7 +17,7 @@
         - name: Install GitVersion
           uses: gittools/actions/gitversion/setup@v3.1.11
           with:
-            versionSpec: '6.0.0'
+            versionSpec: '5.2.x'
         - name: Determine Version
           uses: gittools/actions/gitversion/execute@v3.1.11
           with:
